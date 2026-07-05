@@ -5,7 +5,12 @@ import { useEffect, useState } from "react";
 import { formatPrice } from "@/lib/mock-data";
 
 export const Route = createFileRoute("/_shop/order-success")({
-  head: () => ({ meta: [{ title: "Order Confirmed — Eve Beauty Care" }] }),
+  head: () => ({
+    meta: [
+      { title: "Order Confirmed | Eve Beauty Care" },
+      { name: "robots", content: "noindex, nofollow" },
+    ],
+  }),
   component: SuccessPage,
 });
 

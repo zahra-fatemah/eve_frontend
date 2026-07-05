@@ -43,7 +43,7 @@ export function Navbar() {
           </div>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-10">
+        <nav className="hidden md:flex items-center gap-10" aria-label="Main navigation">
           {NAV.map((n) => {
             const active = pathname === n.to;
             return (
@@ -58,7 +58,7 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2 sm:gap-3">
-          <Link to="/cart" className="relative p-2 rounded-full hover:bg-accent/50 transition">
+          <Link to="/cart" className="relative p-2 rounded-full hover:bg-accent/50 transition" aria-label="Shopping bag">
             <ShoppingBag className="h-5 w-5" />
             {count > 0 && (
               <motion.span
@@ -68,7 +68,7 @@ export function Navbar() {
               >{count}</motion.span>
             )}
           </Link>
-          <Link to="/admin/login" className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-primary/20 px-4 py-2 text-xs font-medium text-primary hover:bg-primary hover:text-primary-foreground transition-all">
+          <Link to="/admin/login" className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-primary/20 px-4 py-2 text-xs font-medium text-primary hover:bg-primary hover:text-primary-foreground transition-all" aria-label="Admin login">
             <Shield className="h-3.5 w-3.5" /> Admin
           </Link>
           <button className="md:hidden p-2" onClick={() => setOpen(!open)} aria-label="Menu">

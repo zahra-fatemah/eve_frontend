@@ -16,8 +16,12 @@ export function Footer() {
               Timeless beauty, crafted with care. Premium skincare and cosmetics designed to reveal your natural radiance.
             </p>
             <div className="mt-6 flex gap-3">
-              {[Instagram, Facebook, Twitter].map((Icon, i) => (
-                <a key={i} href="#" aria-label="social" className="grid h-10 w-10 place-items-center rounded-full border border-white/20 hover:bg-gradient-gold hover:text-primary hover:border-transparent transition-all">
+              {[
+                { Icon: Instagram, label: "Follow us on Instagram" },
+                { Icon: Facebook, label: "Follow us on Facebook" },
+                { Icon: Twitter, label: "Follow us on Twitter" },
+              ].map(({ Icon, label }, i) => (
+                <a key={i} href="#" aria-label={label} className="grid h-10 w-10 place-items-center rounded-full border border-white/20 hover:bg-gradient-gold hover:text-primary hover:border-transparent transition-all">
                   <Icon className="h-4 w-4" />
                 </a>
               ))}
@@ -37,7 +41,7 @@ export function Footer() {
           <div>
             <h4 className="text-sm tracking-[0.3em] uppercase text-gold">Contact</h4>
             <ul className="mt-4 space-y-3 text-sm text-primary-foreground/80">
-              <li className="flex gap-2"><Mail className="h-4 w-4 shrink-0 mt-0.5 text-gold" /> hello@evebeauticare.com</li>
+              <li className="flex gap-2"><Mail className="h-4 w-4 shrink-0 mt-0.5 text-gold" /> hello@evebeautycare.com</li>
               <li className="flex gap-2"><Phone className="h-4 w-4 shrink-0 mt-0.5 text-gold" /> +91 98100 00000</li>
               <li className="flex gap-2"><MapPin className="h-4 w-4 shrink-0 mt-0.5 text-gold" /> 24 Bloom Street, Bandra West, Mumbai 400050</li>
             </ul>
@@ -47,8 +51,9 @@ export function Footer() {
             <h4 className="text-sm tracking-[0.3em] uppercase text-gold">Newsletter</h4>
             <p className="mt-4 text-sm text-primary-foreground/70">Join our beauty circle for early access & exclusive offers.</p>
             <form className="mt-4 flex gap-2">
-              <input type="email" placeholder="your@email.com" className="flex-1 min-w-0 rounded-full bg-white/10 border border-white/20 px-4 py-2.5 text-sm placeholder:text-white/40 focus:outline-none focus:border-gold" />
-              <button className="rounded-full bg-gradient-gold text-primary px-5 py-2.5 text-sm font-medium hover:shadow-gold transition-shadow">Join</button>
+              <label htmlFor="newsletter-email" className="sr-only">Email address</label>
+              <input id="newsletter-email" type="email" name="email" autoComplete="email" placeholder="your@email.com" className="flex-1 min-w-0 rounded-full bg-white/10 border border-white/20 px-4 py-2.5 text-sm placeholder:text-white/40 focus:outline-none focus:border-gold" />
+              <button type="submit" aria-label="Subscribe to newsletter" className="rounded-full bg-gradient-gold text-primary px-5 py-2.5 text-sm font-medium hover:shadow-gold transition-shadow">Join</button>
             </form>
           </div>
         </div>

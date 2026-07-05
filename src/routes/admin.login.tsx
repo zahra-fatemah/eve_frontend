@@ -7,7 +7,12 @@ import logo from "@/assets/logo.png";
 import { adminLogin } from "@/services/api";
 
 export const Route = createFileRoute("/admin/login")({
-  head: () => ({ meta: [{ title: "Admin Login — Eve Beauty Care" }] }),
+  head: () => ({
+    meta: [
+      { title: "Admin Login | Eve Beauty Care" },
+      { name: "robots", content: "noindex, nofollow" },
+    ],
+  }),
   component: LoginPage,
 });
 
@@ -50,7 +55,7 @@ function LoginPage() {
         <form onSubmit={handleSubmit(onSubmit)} className="mt-8 space-y-4">
           <div className="relative">
             <Mail className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-white/50" />
-            <input {...register("email", { required: true })} type="email" placeholder="Email" defaultValue="admin@evebeauticare.com"
+            <input {...register("email", { required: true })} type="email" placeholder="Email" defaultValue="admin@evebeautycare.com"
               className="w-full rounded-2xl bg-white/5 border border-white/15 pl-11 pr-4 py-3.5 text-sm text-white placeholder:text-white/40 focus:outline-none focus:border-gold focus:ring-2 focus:ring-gold/30" />
           </div>
           <div className="relative">

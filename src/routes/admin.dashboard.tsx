@@ -7,7 +7,12 @@ import { getDashboardStats, getOrders, updatePaymentStatus, updateOrderStatus, d
 import { toast } from "sonner";
 
 export const Route = createFileRoute("/admin/dashboard")({
-  head: () => ({ meta: [{ title: "Dashboard — Eve Admin" }] }),
+  head: () => ({
+    meta: [
+      { title: "Dashboard | Eve Beauty Care Admin" },
+      { name: "robots", content: "noindex, nofollow" },
+    ],
+  }),
   component: Dashboard,
 });
 

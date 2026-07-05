@@ -5,7 +5,12 @@ import { useCart } from "@/lib/cart-store";
 import { formatPrice } from "@/lib/mock-data";
 
 export const Route = createFileRoute("/_shop/cart")({
-  head: () => ({ meta: [{ title: "Your Bag — Eve Beauty Care" }] }),
+  head: () => ({
+    meta: [
+      { title: "Your Bag | Eve Beauty Care" },
+      { name: "robots", content: "noindex, nofollow" },
+    ],
+  }),
   component: CartPage,
 });
 

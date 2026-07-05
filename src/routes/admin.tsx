@@ -29,7 +29,7 @@ function AdminLayout() {
       navigate({ to: "/admin/login" });
     }
 
-    const email = localStorage.getItem("eve-admin-email") || "admin@evebeauticare.com";
+    const email = localStorage.getItem("eve-admin-email") || "admin@evebeautycare.com";
     setAdminEmail(email);
   }, [pathname, navigate]);
 

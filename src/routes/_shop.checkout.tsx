@@ -8,7 +8,12 @@ import { toast } from "sonner";
 import { placeOrder } from "@/services/api";
 
 export const Route = createFileRoute("/_shop/checkout")({
-  head: () => ({ meta: [{ title: "Checkout — Eve Beauty Care" }] }),
+  head: () => ({
+    meta: [
+      { title: "Checkout | Eve Beauty Care" },
+      { name: "robots", content: "noindex, nofollow" },
+    ],
+  }),
   component: CheckoutPage,
 });
 
@@ -82,32 +87,32 @@ function CheckoutPage() {
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
             <div className="sm:col-span-2">
               <label className="text-xs uppercase tracking-widest text-muted-foreground">Full Name*</label>
-              <input {...register("fullName", { required: true })} className={`mt-1.5 ${field}`} />
+              <input {...register("fullName", { required: true })} autoComplete="name" className={`mt-1.5 ${field}`} />
               {errors.fullName && <p className="text-xs text-destructive mt-1">Required</p>}
             </div>
             <div>
               <label className="text-xs uppercase tracking-widest text-muted-foreground">Phone*</label>
-              <input {...register("phone", { required: true })} className={`mt-1.5 ${field}`} />
+              <input {...register("phone", { required: true })} autoComplete="tel" className={`mt-1.5 ${field}`} />
             </div>
             <div>
               <label className="text-xs uppercase tracking-widest text-muted-foreground">Email (optional)</label>
-              <input type="email" {...register("email")} className={`mt-1.5 ${field}`} />
+              <input type="email" {...register("email")} autoComplete="email" className={`mt-1.5 ${field}`} />
             </div>
             <div className="sm:col-span-2">
               <label className="text-xs uppercase tracking-widest text-muted-foreground">Address*</label>
-              <input {...register("address", { required: true })} className={`mt-1.5 ${field}`} />
+              <input {...register("address", { required: true })} autoComplete="street-address" className={`mt-1.5 ${field}`} />
             </div>
             <div>
               <label className="text-xs uppercase tracking-widest text-muted-foreground">City*</label>
-              <input {...register("city", { required: true })} className={`mt-1.5 ${field}`} />
+              <input {...register("city", { required: true })} autoComplete="address-level2" className={`mt-1.5 ${field}`} />
             </div>
             <div>
               <label className="text-xs uppercase tracking-widest text-muted-foreground">State*</label>
-              <input {...register("state", { required: true })} className={`mt-1.5 ${field}`} />
+              <input {...register("state", { required: true })} autoComplete="address-level1" className={`mt-1.5 ${field}`} />
             </div>
             <div>
               <label className="text-xs uppercase tracking-widest text-muted-foreground">Pincode*</label>
-              <input {...register("pincode", { required: true })} className={`mt-1.5 ${field}`} />
+              <input {...register("pincode", { required: true })} autoComplete="postal-code" className={`mt-1.5 ${field}`} />
             </div>
             <div>
               <label className="text-xs uppercase tracking-widest text-muted-foreground">Landmark</label>

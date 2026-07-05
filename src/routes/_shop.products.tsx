@@ -9,8 +9,22 @@ import { getProducts } from "@/services/api";
 export const Route = createFileRoute("/_shop/products")({
   head: () => ({
     meta: [
-      { title: "Shop All — Eve Beauty Care" },
-      { name: "description", content: "Browse the full Eve Beauty Care luxury collection: skincare, lipsticks, fragrances and serums." },
+      { title: "Shop All Products | Eve Beauty Care" },
+      {
+        name: "description",
+        content:
+          "Browse the full Eve Beauty Care luxury collection: skincare, lipsticks, fragrances, serums and more. Find your perfect beauty essentials.",
+      },
+      { property: "og:title", content: "Shop All Products | Eve Beauty Care" },
+      { property: "og:description", content: "Browse our full luxury beauty collection at Eve Beauty Care." },
+      { property: "og:url", content: "https://evebeautycare.live/products" },
+      { property: "og:image", content: "https://evebeautycare.live/og-image.png" },
+      { name: "twitter:title", content: "Shop All Products | Eve Beauty Care" },
+      { name: "twitter:description", content: "Browse our full luxury beauty collection at Eve Beauty Care." },
+      { name: "twitter:image", content: "https://evebeautycare.live/og-image.png" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://evebeautycare.live/products" },
     ],
   }),
   component: ProductsPage,

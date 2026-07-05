@@ -69,15 +69,16 @@ export function ProductCard({ product, index = 0 }: { product: Product; index?: 
         <div className="mt-4 flex items-center justify-between">
           <span className="text-lg font-display text-primary">{formatPrice(product.price)}</span>
           <div className="flex items-center rounded-full border border-border">
-            <button onClick={() => setQty(Math.max(1, qty - 1))} className="p-1.5 hover:text-primary transition"><Minus className="h-3 w-3" /></button>
+            <button onClick={() => setQty(Math.max(1, qty - 1))} className="p-1.5 hover:text-primary transition" aria-label="Decrease quantity"><Minus className="h-3 w-3" /></button>
             <span className="w-6 text-center text-sm">{qty}</span>
-            <button onClick={() => setQty(qty + 1)} className="p-1.5 hover:text-primary transition"><Plus className="h-3 w-3" /></button>
+            <button onClick={() => setQty(qty + 1)} className="p-1.5 hover:text-primary transition" aria-label="Increase quantity"><Plus className="h-3 w-3" /></button>
           </div>
         </div>
 
         <button
           onClick={() => { add(product, qty); toast.success(`${product.name} added to bag`); }}
           className="mt-4 w-full rounded-full bg-gradient-gold text-primary font-medium py-2.5 text-sm inline-flex items-center justify-center gap-2 hover:shadow-gold transition-all hover:brightness-105 active:scale-[0.98]"
+          aria-label={`Add ${product.name} to bag`}
         >
           <ShoppingBag className="h-4 w-4" /> Add to Bag
         </button>

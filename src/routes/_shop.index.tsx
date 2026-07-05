@@ -11,8 +11,25 @@ import { getProducts } from "@/services/api";
 export const Route = createFileRoute("/_shop/")({
   head: () => ({
     meta: [
-      { title: "Eve Beauty Care — Reveal Your Natural Beauty" },
-      { name: "description", content: "Premium beauty products designed for everyday confidence. Shop luxury skincare, lipsticks and fragrances." },
+      { title: "Eve Beauty Care | Premium Beauty & Skincare Products" },
+      {
+        name: "description",
+        content:
+          "Discover premium beauty products, skincare essentials, cosmetics and luxury beauty collections at Eve Beauty Care. Shop now for radiant skin.",
+      },
+      { property: "og:title", content: "Eve Beauty Care | Premium Beauty & Skincare Products" },
+      {
+        property: "og:description",
+        content: "Discover premium beauty products, skincare essentials, cosmetics and luxury beauty collections at Eve Beauty Care.",
+      },
+      { property: "og:url", content: "https://evebeautycare.live/" },
+      { property: "og:image", content: "https://evebeautycare.live/og-image.png" },
+      { name: "twitter:title", content: "Eve Beauty Care | Premium Beauty & Skincare Products" },
+      { name: "twitter:description", content: "Premium beauty products designed for everyday confidence." },
+      { name: "twitter:image", content: "https://evebeautycare.live/og-image.png" },
+    ],
+    links: [
+      { rel: "canonical", href: "https://evebeautycare.live/" },
     ],
   }),
   component: Home,
