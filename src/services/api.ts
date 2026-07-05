@@ -1,19 +1,15 @@
 import axios from "axios";
+import API_BASE_URL from "../config/api";
 
 /**
  * Axios instance for Eve Beauty Care API.
- * - baseURL points to the backend (proxied in dev via Vite, or direct URL)
+ * - baseURL reads from VITE_API_URL env var (centralized in src/config/api.ts)
  * - Request interceptor automatically attaches JWT from localStorage
  * - Response interceptor catches 401 and redirects to admin login
  */
 
-// Use direct backend URL — works with any frontend server setup
-const API_BASE = typeof window !== "undefined"
-  ? "http://localhost:5000/api"   // Client-side: call backend directly
-  : "http://localhost:5000/api";  // Server-side (SSR): also direct
-
 const API = axios.create({
-  baseURL: API_BASE,
+  baseURL: `${API_BASE_URL}/api`,
 });
 
 // ──── Request Interceptor: Attach JWT ────
