@@ -43,10 +43,9 @@ export function OrganizationJsonLd() {
       addressCountry: "IN",
     },
     sameAs: [
-      // Add your social profile URLs here
-      // "https://www.instagram.com/evebeautycare",
-      // "https://www.facebook.com/evebeautycare",
-      // "https://twitter.com/evebeautycare",
+      // Social profile URLs
+      "https://www.instagram.com/eve_beautycare?igsh=Nng1ZXBkNmNhY3hl",
+      "https://www.facebook.com/share/1AoJLrGd1Z/",
     ],
   };
 

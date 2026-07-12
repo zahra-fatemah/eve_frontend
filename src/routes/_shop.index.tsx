@@ -1,8 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { ArrowRight, ChevronDown, Sparkles, Leaf, ShieldCheck, Award, Star, Quote } from "lucide-react";
-import hero from "@/assets/hero.jpg";
-import logo from "@/assets/logo.png";
+import { ArrowRight, Leaf, ShieldCheck, Star, Truck, Heart, Rabbit, Quote } from "lucide-react";
+import hero from "@/assets/hero.jpg"; 
 import { testimonials, type Product } from "@/lib/mock-data";
 import { ProductCard } from "@/components/site/ProductCard";
 import { useEffect, useState } from "react";
@@ -35,13 +34,6 @@ export const Route = createFileRoute("/_shop/")({
   component: Home,
 });
 
-const perks = [
-  { icon: Award, title: "Premium Quality", desc: "Formulated in small batches with the finest ingredients from around the world." },
-  { icon: Leaf, title: "Natural Ingredients", desc: "Botanicals, cold-pressed oils and clean actives — never harsh synthetics." },
-  { icon: Sparkles, title: "Affordable Luxury", desc: "Editorial-grade beauty at prices that honor everyday indulgence." },
-  { icon: ShieldCheck, title: "Trusted Brand", desc: "Loved by 50,000+ women. Dermatologist-approved. Cruelty-free." },
-];
-
 function Home() {
   const [products, setProducts] = useState<Product[]>([]);
 
@@ -58,59 +50,105 @@ function Home() {
   }, []);
 
   return (
-    <div className="overflow-hidden">
-      {/* HERO */}
-      <section className="relative min-h-[92vh] flex items-center bg-gradient-hero">
-        <div className="absolute inset-0">
-          <img src={hero} alt="Luxury beauty products" width={1600} height={1200} className="h-full w-full object-cover opacity-90" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-transparent" />
-        </div>
-
-        <div className="relative mx-auto max-w-7xl px-6 lg:px-10 grid lg:grid-cols-2 gap-12 items-center py-24">
-          <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease: "easeOut" }}>
-            <motion.img
-              src={logo} alt="" width={80} height={80}
-              initial={{ scale: 0.6, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ delay: 0.2, duration: 0.7 }}
-              className="h-20 w-20 mb-6"
-            />
-            <span className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs tracking-[0.3em] uppercase text-primary">
-              <Sparkles className="h-3 w-3 text-gold" /> New Collection 2026
+    <div className="overflow-hidden bg-[#fcf9f2]">
+      {/* HERO SECTION */}
+      <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-32 px-6 lg:px-10 mx-auto max-w-7xl">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <motion.div initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
+            <span className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.25em] uppercase text-muted-foreground mb-4">
+              Natural Beauty, Made With Care <Heart className="h-3 w-3 text-primary fill-primary" />
             </span>
-            <h1 className="mt-6 font-display text-5xl sm:text-6xl lg:text-7xl leading-[1.05] text-foreground">
-              Reveal Your <br />
-              <span className="italic text-primary">Natural Beauty</span>
+            <h1 className="mt-2 font-display text-5xl sm:text-6xl lg:text-[5rem] leading-[1.05] text-foreground">
+              Glow Naturally. <br /> Love Every Shade.
             </h1>
-            <p className="mt-6 text-base sm:text-lg text-muted-foreground max-w-lg leading-relaxed">
-              Premium beauty products designed for everyday confidence. Crafted with care in small batches — because you deserve nothing less than extraordinary.
+            <p className="mt-6 text-base sm:text-lg text-foreground/75 max-w-lg leading-relaxed">
+              Skincare & makeup crafted with premium ingredients to nourish, protect and enhance your natural beauty.
             </p>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Link to="/products" className="group inline-flex items-center gap-2 rounded-full bg-gradient-gold text-primary font-medium px-8 py-4 shadow-gold hover:shadow-luxe transition-all hover:brightness-105">
-                Shop Now <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <div className="mt-10 flex flex-wrap gap-4 items-center">
+              <Link to="/products" className="group inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground font-medium px-8 py-4 shadow-lg shadow-primary/20 hover:brightness-110 transition-all">
+                Shop Collection <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link to="/products" className="inline-flex items-center gap-2 rounded-full border-2 border-primary text-primary font-medium px-8 py-4 hover:bg-primary hover:text-primary-foreground transition-all">
+              <Link to="/products" className="inline-flex items-center gap-2 rounded-full border border-primary/30 text-primary font-medium px-8 py-4 hover:border-primary hover:bg-primary/5 transition-all">
                 Explore Products
               </Link>
             </div>
           </motion.div>
 
-          <div className="hidden lg:block" />
+          <motion.div initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }} className="relative h-[400px] lg:h-[600px] w-full">
+             {/* Using the existing hero image as a placeholder for the right side cluster */}
+             <img src={hero} alt="Eve Beauty Care Products" className="w-full h-full object-cover rounded-3xl shadow-2xl shadow-primary/10" />
+          </motion.div>
         </div>
 
-        <motion.div
-          animate={{ y: [0, 10, 0] }} transition={{ duration: 2, repeat: Infinity }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center text-xs text-muted-foreground tracking-widest uppercase"
+        {/* TRUST BANNER */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }}
+          className="relative z-10 mt-12 lg:-mt-12 bg-white rounded-3xl shadow-xl border border-primary/5 p-6 lg:p-8"
         >
-          <span>Scroll</span>
-          <ChevronDown className="h-5 w-5 mt-1" />
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-4 divide-y sm:divide-y-0 sm:divide-x divide-border">
+            <div className="flex items-center gap-4 sm:px-4">
+              <Leaf className="h-8 w-8 text-primary shrink-0" strokeWidth={1.5} />
+              <div><p className="text-sm font-bold text-foreground">Natural Ingredients</p><p className="text-xs text-muted-foreground mt-0.5">Care from nature</p></div>
+            </div>
+            <div className="flex items-center gap-4 sm:px-4 pt-4 sm:pt-0">
+              <Rabbit className="h-8 w-8 text-primary shrink-0" strokeWidth={1.5} />
+              <div><p className="text-sm font-bold text-foreground">Cruelty Free</p><p className="text-xs text-muted-foreground mt-0.5">Kind to animals</p></div>
+            </div>
+            <div className="flex items-center gap-4 sm:px-4 pt-4 sm:pt-0">
+              <ShieldCheck className="h-8 w-8 text-primary shrink-0" strokeWidth={1.5} />
+              <div><p className="text-sm font-bold text-foreground">Dermatologically Tested</p><p className="text-xs text-muted-foreground mt-0.5">Safe for all skin types</p></div>
+            </div>
+            <div className="flex items-center gap-4 sm:px-4 pt-4 sm:pt-0">
+              <Truck className="h-8 w-8 text-primary shrink-0" strokeWidth={1.5} />
+              <div><p className="text-sm font-bold text-foreground">Fast & Secure Delivery</p><p className="text-xs text-muted-foreground mt-0.5">Across India</p></div>
+            </div>
+            <div className="flex items-center gap-4 sm:px-4 pt-4 sm:pt-0">
+              <Star className="h-8 w-8 text-primary shrink-0" strokeWidth={1.5} />
+              <div><p className="text-sm font-bold text-foreground">4.9/5 Customer Rating</p><p className="text-xs text-muted-foreground mt-0.5">Loved by thousands</p></div>
+            </div>
+          </div>
         </motion.div>
       </section>
 
-      {/* FEATURED */}
-      <section className="mx-auto max-w-7xl px-6 lg:px-10 py-24">
+      {/* SHOP BY CATEGORY */}
+      <section className="py-16 lg:py-24 px-6 lg:px-10 mx-auto max-w-7xl">
+        <div className="text-center mb-12">
+           <span className="inline-flex items-center gap-2 text-[10px] font-bold tracking-[0.3em] uppercase text-primary mb-3">
+              <Heart className="h-3 w-3 fill-primary" /> DISCOVER OUR RANGE <Heart className="h-3 w-3 fill-primary" />
+            </span>
+            <h2 className="font-display text-4xl lg:text-5xl text-foreground">Shop by Category</h2>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-6">
+          {[
+            { title: "Skincare", desc: "Nourish & Care" },
+            { title: "Makeup", desc: "Enhance & Express" },
+            { title: "Sun Protection", desc: "Shield & Protect" },
+            { title: "Serums", desc: "Target & Treat" },
+            { title: "Lipsticks", desc: "Shades of You" }
+          ].map((cat, i) => (
+             <Link key={i} to={`/products?category=${cat.title.toLowerCase()}`} className="group relative bg-[#f4ebd9] rounded-3xl p-6 h-[240px] flex flex-col justify-end overflow-hidden hover:shadow-lg hover:shadow-primary/10 transition-all border border-primary/5">
+               <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-primary/5 to-transparent" />
+               
+               <div className="relative z-20 flex justify-between items-end">
+                 <div>
+                   <h3 className="font-display text-lg sm:text-xl font-bold text-foreground">{cat.title}</h3>
+                   <p className="text-xs text-muted-foreground mt-1">{cat.desc}</p>
+                 </div>
+                 <div className="h-8 w-8 shrink-0 rounded-full bg-white flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors shadow-sm">
+                   <ArrowRight className="h-4 w-4" />
+                 </div>
+               </div>
+             </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* FEATURED BESTSELLERS */}
+      <section className="mx-auto max-w-7xl px-6 lg:px-10 py-24 border-t border-border/50">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-2xl mx-auto">
-          <span className="text-xs tracking-[0.4em] uppercase text-gold">Bestsellers</span>
+          <span className="text-[10px] tracking-[0.3em] uppercase text-primary font-bold">Bestsellers</span>
           <h2 className="mt-3 font-display text-4xl sm:text-5xl text-foreground">Featured Products</h2>
-          <p className="mt-4 text-muted-foreground">Our most-loved essentials — hand-picked, meticulously crafted, universally adored.</p>
         </motion.div>
 
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -126,60 +164,41 @@ function Home() {
         )}
       </section>
 
-      {/* WHY US */}
-      <section className="bg-gradient-hero py-24">
+      {/* TESTIMONIALS */}
+      <section className="bg-white py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-2xl mx-auto">
-            <span className="text-xs tracking-[0.4em] uppercase text-gold">The Eve Difference</span>
-            <h2 className="mt-3 font-display text-4xl sm:text-5xl text-foreground">Why Choose Eve Beauty Care</h2>
+            <span className="text-[10px] tracking-[0.3em] uppercase text-primary font-bold">Kind Words</span>
+            <h2 className="mt-3 font-display text-4xl sm:text-5xl text-foreground">Loved By Thousands</h2>
           </motion.div>
 
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {perks.map((p, i) => (
+          <div className="mt-14 grid gap-6 lg:grid-cols-3">
+            {testimonials.map((t, i) => (
               <motion.div
-                key={p.title}
+                key={t.name}
                 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                whileHover={{ y: -8 }}
-                className="glass rounded-3xl p-8 text-center shadow-soft hover:shadow-luxe transition-all"
+                whileHover={{ y: -6 }}
+                className="rounded-3xl bg-[#fcf9f2] border border-primary/5 p-8 shadow-sm hover:shadow-xl hover:shadow-primary/5 transition-all"
               >
-                <div className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-gradient-gold shadow-gold">
-                  <p.icon className="h-7 w-7 text-primary" />
+                <Quote className="h-8 w-8 text-primary/40" />
+                <p className="mt-4 text-foreground/80 leading-relaxed italic">"{t.text}"</p>
+                <div className="mt-6 flex items-center gap-4">
+                  <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary">
+                    {t.name[0]}
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold text-foreground">{t.name}</p>
+                    <div className="flex text-gold mt-1">
+                      {[...Array(5)].map((_, i) => <Star key={i} className="h-3 w-3 fill-current" />)}
+                    </div>
+                  </div>
                 </div>
-                <h3 className="mt-5 font-display text-xl text-foreground">{p.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
-
-      {/* TESTIMONIALS */}
-      <section className="mx-auto max-w-7xl px-6 lg:px-10 py-24">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center max-w-2xl mx-auto">
-          <span className="text-xs tracking-[0.4em] uppercase text-gold">Kind Words</span>
-          <h2 className="mt-3 font-display text-4xl sm:text-5xl text-foreground">Loved By Thousands</h2>
-        </motion.div>
-
-        <div className="mt-14 grid gap-6 lg:grid-cols-3">
-          {testimonials.map((t, i) => (
-            <motion.div
-              key={t.name}
-              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              whileHover={{ y: -6 }}
-              className="rounded-3xl bg-card border border-border p-8 shadow-soft hover:shadow-luxe transition-all"
-            >
-              <Quote className="h-8 w-8 text-gold" />
-              <p className="mt-4 text-foreground/80 leading-relaxed italic">"{t.text}"</p>
-              <div className="mt-6 flex items-center gap-4">
-                <img src={t.avatar} alt={t.name} loading="lazy" width={48} height={48} className="h-12 w-12 rounded-full object-cover ring-2 ring-gold" />
-                <div>
-                  <p className="font-display text-foreground">{t.name}</p>
-                  <p className="text-xs text-muted-foreground">{t.role}</p>
-                </div>
-                <div className="ml-auto flex gap-0.5 text-gold">
-                  {Array.from({ length: t.rating }).map((_, i) => <Star key={i} className="h-3.5 w-3.5 fill-current" />)}
                 </div>
               </div>
             </motion.div>

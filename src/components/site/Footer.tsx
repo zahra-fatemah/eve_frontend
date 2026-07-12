@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Instagram, Facebook, Twitter, Mail, MapPin, Phone } from "lucide-react";
+import { Instagram, Facebook, Mail, MapPin, Phone } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 export function Footer() {
@@ -17,11 +17,10 @@ export function Footer() {
             </p>
             <div className="mt-6 flex gap-3">
               {[
-                { Icon: Instagram, label: "Follow us on Instagram" },
-                { Icon: Facebook, label: "Follow us on Facebook" },
-                { Icon: Twitter, label: "Follow us on Twitter" },
-              ].map(({ Icon, label }, i) => (
-                <a key={i} href="#" aria-label={label} className="grid h-10 w-10 place-items-center rounded-full border border-white/20 hover:bg-gradient-gold hover:text-primary hover:border-transparent transition-all">
+                { Icon: Instagram, label: "Follow us on Instagram", href: "https://www.instagram.com/eve_beautycare?igsh=Nng1ZXBkNmNhY3hl" },
+                { Icon: Facebook, label: "Follow us on Facebook", href: "https://www.facebook.com/share/1AoJLrGd1Z/" },
+              ].map(({ Icon, label, href }, i) => (
+                <a key={i} href={href} target="_blank" rel="noopener noreferrer" aria-label={label} className="grid h-10 w-10 place-items-center rounded-full border border-white/20 hover:bg-gradient-gold hover:text-primary hover:border-transparent transition-all">
                   <Icon className="h-4 w-4" />
                 </a>
               ))}
