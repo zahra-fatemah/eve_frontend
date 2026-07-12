@@ -41,9 +41,9 @@ export function Footer() {
           <div>
             <h4 className="text-sm tracking-[0.3em] uppercase text-gold">Contact</h4>
             <ul className="mt-4 space-y-3 text-sm text-primary-foreground/80">
-              <li className="flex gap-2"><Mail className="h-4 w-4 shrink-0 mt-0.5 text-gold" /> hello@evebeautycare.com</li>
-              <li className="flex gap-2"><Phone className="h-4 w-4 shrink-0 mt-0.5 text-gold" /> +91 98100 00000</li>
-              <li className="flex gap-2"><MapPin className="h-4 w-4 shrink-0 mt-0.5 text-gold" /> 24 Bloom Street, Bandra West, Mumbai 400050</li>
+              <li className="flex gap-2"><Mail className="h-4 w-4 shrink-0 mt-0.5 text-gold" /> evebcare@gmail.com</li>
+              <li className="flex gap-2"><Phone className="h-4 w-4 shrink-0 mt-0.5 text-gold" /> +91 9836579402</li>
+              <li className="flex gap-2"><MapPin className="h-4 w-4 shrink-0 mt-0.5 text-gold" /> P-67, Nani Gopal Roy Chowdhury Avenue, Kolkata 700014</li>
             </ul>
           </div>
 

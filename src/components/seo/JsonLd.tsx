@@ -29,17 +29,17 @@ export function OrganizationJsonLd() {
       "Premium beauty and skincare products designed for everyday confidence.",
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+91-98100-00000",
+      telephone: "+91-9836579402",
       contactType: "customer service",
-      email: "hello@evebeautycare.com",
+      email: "evebcare@gmail.com",
       availableLanguage: "English",
     },
     address: {
       "@type": "PostalAddress",
-      streetAddress: "24 Bloom Street, Bandra West",
-      addressLocality: "Mumbai",
-      addressRegion: "Maharashtra",
-      postalCode: "400050",
+      streetAddress: "P-67, Nani Gopal Roy Chowdhury Avenue",
+      addressLocality: "Kolkata",
+      addressRegion: "West Bengal",
+      postalCode: "700014",
       addressCountry: "IN",
     },
     sameAs: [
@@ -88,14 +88,14 @@ export function StoreJsonLd() {
       "Premium beauty and skincare products designed for everyday confidence.",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "24 Bloom Street, Bandra West",
-      addressLocality: "Mumbai",
-      addressRegion: "Maharashtra",
-      postalCode: "400050",
+      streetAddress: "P-67, Nani Gopal Roy Chowdhury Avenue",
+      addressLocality: "Kolkata",
+      addressRegion: "West Bengal",
+      postalCode: "700014",
       addressCountry: "IN",
     },
     priceRange: "₹₹",
-    telephone: "+91-98100-00000",
+    telephone: "+91-9836579402",
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: [
