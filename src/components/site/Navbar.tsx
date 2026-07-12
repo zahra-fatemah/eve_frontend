@@ -41,12 +41,20 @@ export function Navbar() {
       }`}
     >
       {/* Top Announcement Bar */}
-      <div className="bg-[#6b0f3c] text-[#f8f5f0] py-2 px-4 text-xs sm:text-sm font-medium tracking-wide">
-        <div className="mx-auto max-w-7xl flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-4">
-          <span className="flex items-center gap-1.5"><Sparkles className="h-3.5 w-3.5 text-gold" /> Premium Ingredients</span>
-          <span className="hidden md:flex items-center gap-1.5"><Leaf className="h-3.5 w-3.5 text-green-400" /> Naturally Effective</span>
-          <span className="flex items-center gap-1.5"><Truck className="h-3.5 w-3.5" /> Pan India Delivery</span>
-        </div>
+      <div className="bg-[#6b0f3c] text-[#f8f5f0] py-2 overflow-hidden flex whitespace-nowrap text-xs sm:text-sm font-medium tracking-wide">
+        <motion.div
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
+          className="flex items-center gap-8 sm:gap-16 w-max px-4"
+        >
+          {[...Array(4)].map((_, i) => (
+            <div key={i} className="flex items-center gap-8 sm:gap-16">
+              <span className="flex items-center gap-1.5"><Sparkles className="h-3.5 w-3.5 text-gold" /> Premium Ingredients</span>
+              <span className="flex items-center gap-1.5"><Leaf className="h-3.5 w-3.5 text-green-400" /> Naturally Effective</span>
+              <span className="flex items-center gap-1.5"><Truck className="h-3.5 w-3.5" /> Free delivery across India on orders above Rs 999</span>
+            </div>
+          ))}
+        </motion.div>
       </div>
 
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-10">
