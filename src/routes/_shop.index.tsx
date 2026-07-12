@@ -52,8 +52,13 @@ function Home() {
   return (
     <div className="overflow-hidden bg-[#fcf9f2]">
       {/* HERO SECTION */}
-      <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-32 px-6 lg:px-10 mx-auto max-w-7xl">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <section className="relative min-h-[85vh] lg:min-h-[90vh] flex items-center pt-24 pb-32">
+        <div className="absolute inset-0">
+          <img src={hero} alt="Eve Beauty Care" className="w-full h-full object-cover opacity-90" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#fcf9f2] via-[#fcf9f2]/80 to-transparent sm:to-transparent" />
+        </div>
+
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-10 w-full grid lg:grid-cols-2 gap-12 items-center">
           <motion.div initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
             <span className="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.25em] uppercase text-muted-foreground mb-4">
               Natural Beauty, Made With Care <Heart className="h-3 w-3 text-primary fill-primary" />
@@ -73,17 +78,15 @@ function Home() {
               </Link>
             </div>
           </motion.div>
-
-          <motion.div initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }} className="relative h-[400px] lg:h-[600px] w-full">
-             {/* Using the existing hero image as a placeholder for the right side cluster */}
-             <img src={hero} alt="Eve Beauty Care Products" className="w-full h-full object-cover rounded-3xl shadow-2xl shadow-primary/10" />
-          </motion.div>
+          <div className="hidden lg:block" />
         </div>
+      </section>
 
-        {/* TRUST BANNER */}
+      {/* TRUST BANNER */}
+      <section className="relative mx-auto max-w-7xl px-6 lg:px-10 z-10">
         <motion.div 
           initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.4 }}
-          className="relative z-10 mt-12 lg:-mt-12 bg-white rounded-3xl shadow-xl border border-primary/5 p-6 lg:p-8"
+          className="-mt-16 lg:-mt-20 bg-white rounded-3xl shadow-xl border border-primary/5 p-6 lg:p-8"
         >
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-4 divide-y sm:divide-y-0 sm:divide-x divide-border">
             <div className="flex items-center gap-4 sm:px-4">
@@ -197,12 +200,6 @@ function Home() {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-                </div>
-              </div>
-            </motion.div>
-          ))}
         </div>
       </section>
     </div>
