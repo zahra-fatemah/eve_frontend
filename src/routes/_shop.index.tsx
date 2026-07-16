@@ -4,6 +4,7 @@ import { ArrowRight, Leaf, ShieldCheck, Star, Truck, Heart, Rabbit, Quote, Spark
 import hero from "@/assets/hero.jpg";
 import skincareImg from "@/assets/skincare.jpg";
 import sunprotectionImg from "@/assets/sunprotection.jpg";
+import serumsImg from "@/assets/serums.jpg";
 import { testimonials, type Product } from "@/lib/mock-data";
 import { ProductCard } from "@/components/site/ProductCard";
 import { useEffect, useState } from "react";
@@ -128,7 +129,7 @@ function Home() {
           {[
             { title: "Skincare", desc: "Nourish & Care", image: skincareImg },
             { title: "Sun Protection", desc: "Shield & Protect", image: sunprotectionImg },
-            { title: "Serums", desc: "Target & Treat" },
+            { title: "Serums", desc: "Target & Treat", image: serumsImg },
             { title: "Lipcare", desc: "Shades of You" }
           ].map((cat, i) => (
              <Link key={i} to="/products" search={{ category: cat.title.toLowerCase() }} className="group relative bg-[#f4ebd9] rounded-3xl p-6 h-[240px] flex flex-col justify-end overflow-hidden hover:shadow-lg hover:shadow-primary/10 transition-all border border-primary/5">
