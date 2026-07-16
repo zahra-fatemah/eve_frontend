@@ -13,7 +13,7 @@ export type Product = {
   updatedAt?: string;
 };
 
-export const CATEGORIES = ["All", "Skincare", "Lipstick", "Fragrance", "Serums", "Makeup"] as const;
+export const CATEGORIES = ["All", "Skincare", "Sun Protection", "Serums", "Lipcare"] as const;
 
 export type OrderItem = {
   productId: string;

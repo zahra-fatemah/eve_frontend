@@ -36,7 +36,7 @@ export function OrganizationJsonLd() {
     },
     address: {
       "@type": "PostalAddress",
-      streetAddress: "P-67, Nani Gopal Roy Chowdhury Avenue",
+      streetAddress: "C.I.T Road",
       addressLocality: "Kolkata",
       addressRegion: "West Bengal",
       postalCode: "700014",
@@ -87,7 +87,7 @@ export function StoreJsonLd() {
       "Premium beauty and skincare products designed for everyday confidence.",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "P-67, Nani Gopal Roy Chowdhury Avenue",
+      streetAddress: "C.I.T Road",
       addressLocality: "Kolkata",
       addressRegion: "West Bengal",
       postalCode: "700014",

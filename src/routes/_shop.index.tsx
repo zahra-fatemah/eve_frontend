@@ -1,7 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { ArrowRight, Leaf, ShieldCheck, Star, Truck, Heart, Rabbit, Quote } from "lucide-react";
-import hero from "@/assets/hero.jpg"; 
+import { ArrowRight, Leaf, ShieldCheck, Star, Truck, Heart, Rabbit, Quote, Sparkles } from "lucide-react";
+import hero from "@/assets/hero.jpg";
+import skincareImg from "@/assets/skincare.jpg";
+import sunprotectionImg from "@/assets/sunprotection.jpg";
 import { testimonials, type Product } from "@/lib/mock-data";
 import { ProductCard } from "@/components/site/ProductCard";
 import { useEffect, useState } from "react";
@@ -98,8 +100,8 @@ function Home() {
               <div><p className="text-sm font-bold text-foreground">Cruelty Free</p><p className="text-xs text-muted-foreground mt-0.5">Kind to animals</p></div>
             </div>
             <div className="flex items-center gap-4 sm:px-4 pt-4 sm:pt-0">
-              <ShieldCheck className="h-8 w-8 text-primary shrink-0" strokeWidth={1.5} />
-              <div><p className="text-sm font-bold text-foreground">Dermatologically Tested</p><p className="text-xs text-muted-foreground mt-0.5">Safe for all skin types</p></div>
+              <Sparkles className="h-8 w-8 text-primary shrink-0" strokeWidth={1.5} />
+              <div><p className="text-sm font-bold text-foreground">Skin Loving Formula</p><p className="text-xs text-muted-foreground mt-0.5">Nourish. Protect. Glow.</p></div>
             </div>
             <div className="flex items-center gap-4 sm:px-4 pt-4 sm:pt-0">
               <Truck className="h-8 w-8 text-primary shrink-0" strokeWidth={1.5} />
@@ -122,21 +124,21 @@ function Home() {
             <h2 className="font-display text-4xl lg:text-5xl text-foreground">Shop by Category</h2>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
           {[
-            { title: "Skincare", desc: "Nourish & Care" },
-            { title: "Makeup", desc: "Enhance & Express" },
-            { title: "Sun Protection", desc: "Shield & Protect" },
+            { title: "Skincare", desc: "Nourish & Care", image: skincareImg },
+            { title: "Sun Protection", desc: "Shield & Protect", image: sunprotectionImg },
             { title: "Serums", desc: "Target & Treat" },
-            { title: "Lipsticks", desc: "Shades of You" }
+            { title: "Lipcare", desc: "Shades of You" }
           ].map((cat, i) => (
-             <Link key={i} to={`/products?category=${cat.title.toLowerCase()}`} className="group relative bg-[#f4ebd9] rounded-3xl p-6 h-[240px] flex flex-col justify-end overflow-hidden hover:shadow-lg hover:shadow-primary/10 transition-all border border-primary/5">
-               <div className="absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-primary/5 to-transparent" />
+             <Link key={i} to="/products" search={{ category: cat.title.toLowerCase() }} className="group relative bg-[#f4ebd9] rounded-3xl p-6 h-[240px] flex flex-col justify-end overflow-hidden hover:shadow-lg hover:shadow-primary/10 transition-all border border-primary/5">
+               {cat.image && <img src={cat.image} alt={cat.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />}
+               <div className={`absolute inset-0 bg-gradient-to-t ${cat.image ? 'from-black/70 via-black/30 to-transparent' : 'from-primary/5 to-transparent'}`} />
                
                <div className="relative z-20 flex justify-between items-end">
                  <div>
-                   <h3 className="font-display text-lg sm:text-xl font-bold text-foreground">{cat.title}</h3>
-                   <p className="text-xs text-muted-foreground mt-1">{cat.desc}</p>
+                   <h3 className={`font-display text-lg sm:text-xl font-bold ${cat.image ? 'text-white' : 'text-foreground'}`}>{cat.title}</h3>
+                   <p className={`text-xs mt-1 ${cat.image ? 'text-white/80' : 'text-muted-foreground'}`}>{cat.desc}</p>
                  </div>
                  <div className="h-8 w-8 shrink-0 rounded-full bg-white flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors shadow-sm">
                    <ArrowRight className="h-4 w-4" />

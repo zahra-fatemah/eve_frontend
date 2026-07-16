@@ -7,6 +7,11 @@ import { ProductCard } from "@/components/site/ProductCard";
 import { getProducts } from "@/services/api";
 
 export const Route = createFileRoute("/_shop/products")({
+  validateSearch: (search: Record<string, unknown>): { category?: string } => {
+    return {
+      category: search.category as string | undefined,
+    };
+  },
   head: () => ({
     meta: [
       { title: "Shop All Products | Eve Beauty Care" },
@@ -31,10 +36,18 @@ export const Route = createFileRoute("/_shop/products")({
 });
 
 function ProductsPage() {
+  const search = Route.useSearch();
   const [allProducts, setAllProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [q, setQ] = useState("");
-  const [cat, setCat] = useState<string>("All");
+
+  const initialCat = useMemo(() => {
+    if (!search.category) return "All";
+    const found = CATEGORIES.find((c) => c.toLowerCase() === search.category?.toLowerCase());
+    return found || "All";
+  }, [search.category]);
+
+  const [cat, setCat] = useState<string>(initialCat);
   const [sort, setSort] = useState<string>("featured");
 
   // Fetch products from API
