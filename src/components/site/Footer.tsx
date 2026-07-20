@@ -46,7 +46,7 @@ export function Footer() {
             </ul>
           </div>
 
-          <div>
+          {/* <div>
             <h4 className="text-sm tracking-[0.3em] uppercase text-gold">Newsletter</h4>
             <p className="mt-4 text-sm text-primary-foreground/70">Join our beauty circle for early access & exclusive offers.</p>
             <form className="mt-4 flex gap-2">
@@ -54,7 +54,7 @@ export function Footer() {
               <input id="newsletter-email" type="email" name="email" autoComplete="email" placeholder="your@email.com" className="flex-1 min-w-0 rounded-full bg-white/10 border border-white/20 px-4 py-2.5 text-sm placeholder:text-white/40 focus:outline-none focus:border-gold" />
               <button type="submit" aria-label="Subscribe to newsletter" className="rounded-full bg-gradient-gold text-primary px-5 py-2.5 text-sm font-medium hover:shadow-gold transition-shadow">Join</button>
             </form>
-          </div>
+          </div> */}
         </div>
 
         <div className="mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-primary-foreground/60">
