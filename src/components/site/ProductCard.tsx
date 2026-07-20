@@ -6,8 +6,8 @@ import type { Product } from "@/lib/mock-data";
 import { formatPrice } from "@/lib/mock-data";
 import { useCart } from "@/lib/cart-store";
 
-/** Helper: get product identifier (supports both _id and id) */
-const pid = (p: Product) => p._id || p.id || "";
+/** Helper: get product identifier — falls back to name to avoid collisions when _id is empty */
+const pid = (p: Product) => (p._id && p._id.trim()) || (p.id && p.id.trim()) || p.name || "";
 
 export function ProductCard({ product, index = 0 }: { product: Product; index?: number }) {
   const [qty, setQty] = useState(1);

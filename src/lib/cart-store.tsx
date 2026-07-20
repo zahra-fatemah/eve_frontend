@@ -16,8 +16,10 @@ type CartCtx = {
 const Ctx = createContext<CartCtx | null>(null);
 const KEY = "eve-cart-v1";
 
-/** Helper: get the product identifier (supports both _id and id) */
-const pid = (p: Product) => p._id || p.id || "";
+/** Helper: get the product identifier (supports both _id and id).
+ *  Falls back to name to avoid treating every product with an empty _id as the same item.
+ */
+const pid = (p: Product) => (p._id && p._id.trim()) || (p.id && p.id.trim()) || p.name || "";
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
